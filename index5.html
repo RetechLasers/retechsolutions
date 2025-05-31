@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retech Solutions - Engineering Internships in Chennai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #ff6b00;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+            --success-color: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #003d7a;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary-color);
+        }
+        
+        .btn-secondary:hover {
+            background: #cc5500;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .section-padding {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            margin-top: 30px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: var(--light-color);
+            padding: 50px 0;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .hero-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        /* Domains Section (Carousel) */
+        .domains {
+            background-color: var(--light-color);
+        }
+        
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .domain-list {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .domain-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            width: 250px;
+            flex: 0 0 250px;
+            margin-right: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .domain-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .domain-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .domain-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Carousel Arrows */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+            z-index: 1;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .left-arrow {
+            left: 10px;
+        }
+
+        .right-arrow {
+            right: 10px;
+        }
+
+        /* Carousel Dots */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--secondary-color);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        .required::after {
+            content: ' *';
+            color: red;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            margin-top: 20px;
+        }
+        
+        /* Call Now and WhatsApp Buttons */
+        .call-now, .whatsapp {
+            position: fixed;
+            right: 30px;
+            background: var(--success-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .call-now {
+            bottom: 30px;
+        }
+        
+        .whatsapp {
+            bottom: 100px;
+            background: #25D366; /* WhatsApp green */
+        }
+        
+        .call-now:hover, .whatsapp:hover {
+            background: #218838; /* Same hover effect for Call Now */
+            transform: scale(1.1);
+        }
+        
+        .whatsapp:hover {
+            background: #1EBE54; /* Slightly darker WhatsApp green on hover */
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(40, 167, 69, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .header-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content, .about-content {
+                flex-direction: column;
+            }
+            
+            .hero-text, .hero-image, .about-text, .about-image {
+                padding: 10px;
+                min-width: 100%;
+            }
+            
+            .footer-section {
+                min-width: 100%;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+
+            .domain-card {
+                width: 200px;
+                flex: 0 0 200px;
+                margin-right: 15px;
+            }
+
+            .carousel-arrow {
+                padding: 10px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .domain-card {
+                width: 180px;
+                flex: 0 0 180px;
+                margin-right: 10px;
+            }
+
+            .carousel-arrow {
+                padding: 8px;
+                font-size: 1rem;
+            }
+
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Call to Action -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Kickstart Your Engineering Career with the Best Internships in Chennai</h1>
+                <p>Get hands-on experience, industry mentorship, and real-world projects through our top-rated internships in Chennai at Retech Solutions.</p>
+                <div class="cta-buttons">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1cCXnKR2ThVTVN8qwjOPpW9sODRLQVT7klCR7uApnuiNw8A/viewform?embedded=true" class="btn">Apply Now</a>
+                    <a href="#domains" class="btn btn-secondary">Explore Domains</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section-padding">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Step Into The Real World Of Tech With Our Internship</h2>
+                    <p>Step Into The Real World Of Tech With Our Internship and gain valuable hands-on experience working on real projects. Develop industry-relevant skills with guidance from expert mentors. Our program prepares you for the professional world by combining practical training, problem-solving, and teamwork to jumpstart your career in technology.</p>
+                    <p>Join us in our mission to bridge the gap between academic knowledge and real-world industry experience. All participants will receive an internship certificate upon successful completion of the program.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1cCXnKR2ThVTVN8qwjOPpW9sODRLQVT7klCR7uApnuiNw8A/viewform?embedded=true" class="btn" style="margin-top: 20px;">Get Started Today</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Students working on project">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">About Retech Solutions</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Retech Solutions Team">
+                </div>
+                <div class="about-text">
+                    <p>Retech Solutions Pvt. Ltd., an ISO 9001:2015 certified company, offers high-quality internships in Chennai for students across various disciplines.</p>
+                    <p>We extend internship opportunities to engineering students across various disciplines. Presently, most of our internships are facilitated through familiar online platforms like Google Meet.</p>
+                    <p>Retech Solutions Pvt Ltd takes great pride in announcing its partnership with Retech Lasers Pvt Ltd, an innovative startup dedicated to advancing laser cutting machine technologies. Together, we offer hands-on experience throughout various stages of product development.</p>
+                    <p>For details on scheduling, availability, or how to apply, feel free to get in touch with us.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domains Section (Carousel) -->
+    <section id="domains" class="domains section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Internship Domains at Retech Solutions</h2>
+            <p class="text-center">We offer a diverse range of internship domains to cater to the varied interests and career aspirations of engineering students. Our programs are designed to provide hands-on experience and industry-relevant skills.</p>
+            
+            <div class="carousel-container">
+                <button class="carousel-arrow left-arrow" onclick="moveCarousel(-1)">❮</button>
+                <div class="domain-list" id="domainList">
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Artificial Intelligence</h3>
+                        <p>A platform connecting students with AI-focused internship opportunities to gain real-world experience and industry exposure.</p>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Full Stack Development (Python)</h3>
+                        <p>A comprehensive internship platform offering hands-on experience in full stack development using Python, from backend to frontend.</p>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>Embedded System</h3>
+                        <p>An internship portal providing practical training in embedded systems, combining hardware integration with real-time software development.</p>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>An internship hub offering hands-on experience in UI/UX design, focusing on user-centered interfaces and seamless digital experiences.</p>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Full Stack Development (Java)</h3>
+                        <p>An internship platform delivering end-to-end training in full stack development with Java, covering both frontend and backend technologies.</p>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Data Analytics</h3>
+                        <p>An internship portal for data analytics, turning raw data into insights with modern tools and hands-on training.</p>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Digital Marketing</h3>
+                        <p>An internship platform providing practical exposure to digital marketing strategies, tools, and real-world campaign execution.</p>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>PCB Board</h3>
+                        <p>An internship portal offering hands-on experience in PCB design, fabrication, and testing for real-world electronic applications.</p>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Cyber Security</h3>
+                        <p>An internship platform offering practical training in cybersecurity, covering threat detection, ethical hacking, and defense strategies.</p>
+                    </div>
+                </div>
+                <button class="carousel-arrow right-arrow" onclick="moveCarousel(1)">❯</button>
+            </div>
+            
+            <div class="carousel-dots" id="carouselDots">
+                <div class="dot active" onclick="goToSlide(0)"></div>
+                <div class="dot" onclick="goToSlide(1)"></div>
+                <div class="dot" onclick="goToSlide(2)"></div>
+                <div class="dot" onclick="goToSlide(3)"></div>
+                <div class="dot" onclick="goToSlide(4)"></div>
+                <div class="dot" onclick="goToSlide(5)"></div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Get In Touch With Us</h2>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <p>For further information, please contact us at <strong> 044-4207 7204</strong></p>
+                <p>Email: <a href="mailto:marketing.retech@gmail.com">info@retechsolutsions.in</a></p>
+                <p>Both <strong>Online</strong> and <strong>Offline</strong> modes of communication are available.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Retech Solutions</h3>
+                    <p>An ISO 9001:2015 certified company offering high-quality internships in Chennai for engineering students across various disciplines.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/retechsolution/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.twitter.com/retechlasers"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/retech-solutions-pvt-ltd/about/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/retechlasersprivatelimited/reels/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@RetechLasers/featured"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="https://retechsolutions.in/about/">About Us</a></li>
+                        <li><a href="https://retechsolutions.in/shop/">Visit Store</a></li>
+                        <li><a href="https://retechsolutions.in/contact/">Let's Connect</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Important Links</h3>
+                    <ul>
+                        <li><a href="https://retechsolutions.in/">Retech Projects</a></li>
+                        <li><a href="https://retechlasers.com/">Retech Lasers</a></li>
+                        <li><a href="https://retechsolutions.in/privacy-policy/">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 33, First Floor, Alagesan Street, Tambaram West, Chennai -45</p>
+                        <p><i class="fas fa-phone"></i> 044-4207 7204</p>
+                        <p><i class="fas fa-envelope"></i> info@retechsolutsions.in</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Copyright ©2025 Retech Solutions Pvt. Ltd. All Rights Reserved.</p>
+                <p><a href="https://retechsolutions.in/privacy-policy/">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Call Now and WhatsApp Buttons -->
+    <a href="https://wa.me/9688881190" class="whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:9688881190" class="call-now">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.domain-card');
+        const totalSlides = slides.length;
+        const dots = document.querySelectorAll('.dot');
+        const slideWidth = 270; // Width of domain-card (250px) + margin-right (20px)
+
+        // Adjust number of visible slides based on screen width
+        function getVisibleSlides() {
+            if (window.innerWidth <= 480) return 1;
+            if (window.innerWidth <= 768) return 2;
+            return 3;
+        }
+
+        // Update carousel position
+        function updateCarousel() {
+            const visibleSlides = getVisibleSlides();
+            const maxSlide = Math.max(0, totalSlides - visibleSlides);
+            currentSlide = Math.min(Math.max(currentSlide, 0), maxSlide);
+
+            const domainList = document.getElementById('domainList');
+            domainList.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+
+            // Update active dot
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSlide) dot.classList.add('active');
+            });
+
+            // Show/hide arrows
+            document.querySelector('.left-arrow').style.display = currentSlide === 0 ? 'none' : 'block';
+            document.querySelector('.right-arrow').style.display = currentSlide >= maxSlide ? 'none' : 'block';
+        }
+
+        // Move carousel left or right
+        function moveCarousel(direction) {
+            currentSlide += direction;
+            updateCarousel();
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Initialize carousel
+        updateCarousel();
+
+        // Update carousel on window resize
+        window.addEventListener('resize', updateCarousel);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Mobile menu toggle (if needed in future)
+        const mobileMenuBtn = document.createElement('button');
+        mobileMenuBtn.className = 'mobile-menu-btn';
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.prepend(mobileMenuBtn);
+        
+        // Show/hide mobile menu button based on screen size
+        function checkScreenSize() {
+            if (window.innerWidth <= 768) {
+                mobileMenuBtn.style.display = 'block';
+            } else {
+                mobileMenuBtn.style.display = 'none';
+            }
+        }
+        
+        window.addEventListener('resize', checkScreenSize);
+        checkScreenSize();
+    </script>
+</body>
+</html>
